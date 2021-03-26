@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+""" NeuronClass """
+import numpy as np
+
+
+class Neuron:
+""" NeuronClass """
+
+    def __init__(self, nx):
+       """ Neuron initializer """"
+        if type(nx) is not int:
+            raise TypeError("nx must be an integer")
+        if nx < 1:
+            raise ValueError("nx must be a positive integer")
+        self.nx = nx
+        self.__W = np.random.randn(1, nx)
+        self.__b = 0
+        self.__A = 0
+
+    def forward_prop(self, X):
+      
+        preactivation = np.matmul(self.__W, X) + self.__b
+        self.__A = 1 / (1 + np.exp(-preactivation))
+        return self.__A
+
+    def cost(self, Y, A):
+      
+        cost = Y * np.log(A) + (1 - Y) * np.log(1.0000001 - A)
+        cost = np.sum(cost)
+        cost = - cost / A.shape[1]
+        return cost
+
+    def evaluate(self, X, Y):
+   
+        self.forward_prop(X)
+        prediction = np.where(self.__A >= 0.5, 1, 0)
+        cost = self.cost(Y, self.__A)
+        return prediction, cost
+
+    @property
+    def W(self):
+        """getter for W attribute"""
+        return self.__W
+
+    @property
+    def b(self):
+          """getter for b attribute"""
+        return self.__b
+
+    @property
+    def A(self):
+       """getter for A attribute"""
+        return self.__A
