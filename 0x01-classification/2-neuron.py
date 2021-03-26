@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-""" Neuron Class """
+""" NeuronClass """
 
 import numpy as np
 
 
 class Neuron:
-   """ Class Neuron """
+   """ NeuronClass """
 
     def __init__(self, nx):
         """ Neuron initializer """
