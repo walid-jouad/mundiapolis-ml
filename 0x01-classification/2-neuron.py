@@ -1,18 +1,14 @@
 #!/usr/bin/env python3
-'''Module contenant la classe neurone
-'''
+""" Neuron Class """
 
 import numpy as np
 
 
 class Neuron:
-    '''Classe qui définit le neurone
-    '''
+   """ Class Neuron """
 
     def __init__(self, nx):
-        '''constructeur de la classe
-        la variable nx: est le nombre d'entités d'entrée du neurone
-        '''
+        """ Neuron initializer """
 
         if not isinstance(nx, int):
             raise TypeError('nx must be an integer')
@@ -24,32 +20,24 @@ class Neuron:
 
     @property
     def W(self):
-        '''Returns the value of __W
-        '''
+      """getter for W attribute"""
 
         return self.__W
 
     @property
     def b(self):
-        '''calcule de la propagation avant du neurone
-            la variable X: un tableau np avec la forme (nx, m) qui contient les données d'entrées
-            elle retourne: attribut privé __A
-        '''
+     """getter for b attribute"""
 
         return self.__b
 
     @property
     def A(self):
-        '''fonction getter pour W
-            elle retourne: vecteur de poids du neurone
-        '''
+     """getter for A attribute"""
 
         return self.__A
 
     def forward_prop(self, X):
-        '''fonction getter pour b
-            elle retourne: biais pour le neurone
-        '''
+       """forward propagation function"""
 
         x = np.matmul(self.__W, X) + self.__b
         self.__A = 1 / (1 + np.exp(-x))
