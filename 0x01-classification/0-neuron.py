@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-""" NeuronClass """
+""" Neuron Class """
 
 import numpy as np
 
 
 class Neuron:
-    """  NeuronClass initialized """
+    """  Neuron Class """
 
     def __init__(self, nx):
-        """ NeuronClass fonction """
+        """ Neuron initializer """
 
         if type(nx) is not int:
             raise TypeError("nx must be an integer")
