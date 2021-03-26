@@ -5,7 +5,7 @@ import numpy as np
 
 
 class Neuron:
-    """  Neuron Class """
+    """ Class Neuron """
 
     def __init__(self, nx):
         """ Neuron initializer """
@@ -18,5 +18,3 @@ class Neuron:
         self.b = 0
         self.A = 0
         self.W = np.random.randn(nx).reshape(1, nx)
-
-        
