@@ -73,4 +73,4 @@ class DeepNeuralNetwork:
     def weights(self):
        
         return self.__weights
-© 2021 GitHub, Inc.
+
