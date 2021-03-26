@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-""" Neuron Class """
+""" NeuronClass """
 
 import numpy as np
 
 
 class Neuron:
-    """ Class Neuron """
+    """  NeuronClass initialized """
 
     def __init__(self, nx):
-        """ Neuron initializer """
+        """ NeuronClass fonction """
 
         if type(nx) is not int:
             raise TypeError("nx must be an integer")
@@ -16,5 +16,6 @@ class Neuron:
             raise ValueError("nx must be a positive integer")
 
         self.b = 0
-        self.A = 0
         self.W = np.random.randn(nx).reshape(1, nx)
+        self.A = 0
+        
