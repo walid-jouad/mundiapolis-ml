@@ -1,20 +1,20 @@
-  
 #!/usr/bin/env python3
-'''  la classe des neurones  '''
+""" Neuron Class """
 
 import numpy as np
 
 
 class Neuron:
-    ''' La classe qui a initialisé le neurone '''
+    """ Class Neuron """
 
     def __init__(self, nx):
-        ''' La fonction de la classe Neuron '''
+        """ Neuron initializer """
 
-        if not isinstance(nx, int):
-            raise TypeError('nx must be an integer')
+        if type(nx) is not int:
+            raise TypeError("nx must be an integer")
         if nx < 1:
-            raise ValueError('nx must be a positive integer')
-        self.W = np.random.normal(0, 1, (1, nx))
+            raise ValueError("nx must be a positive integer")
+
         self.b = 0
         self.A = 0
+        self.W = np.random.randn(nx).reshape(1, nx)
